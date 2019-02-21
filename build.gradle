@@ -1,0 +1,24 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClassName = 'userinterface.Gui'
+}
+
+repositories {
+  flatDir {
+    dirs 'libs'
+  }
+}
+
+dependencies {
+  implementation name: 'autocomplete'
+  implementation fileTree(dir: 'libs/batik-1.7/', include: '*.jar')
+  implementation name: 'forms-1.3.0'
+  implementation name: 'plantuml'
+  implementation name: 'rsyntaxtextarea'
+  implementation name: 'miglayout15-swing'
+}
+ 
+
