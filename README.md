@@ -1,8 +1,22 @@
 Puse
 ====
 
-Sequence diagram editor based on PlantUml framework. Please check http://eldemcan.github.io/Puse/ for detailed information.
-I will also provide a wiki page.
+Sequence diagram editor based on PlantUml framework. Please check http://eldemcan.github.io/Puse/ for detailed information
+
+Manual Usage
+=====
+
+The following will download dependencies, compile the project, and run the GUI. Note: windows users should use `gradlew.bat`
+
+```
+$ ./gradlew run
+```
+
+TODOs
+====
+
+- don't rerun generator if the textbox content has not changed
+
 
 License
 ====
