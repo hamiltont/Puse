@@ -10,43 +10,43 @@ import java.io.*;
  */
 public class GuideList {
 
-	DefaultListModel<DrawerItem> model = new DefaultListModel<DrawerItem>();
+    DefaultListModel<DrawerItem> model = new DefaultListModel<DrawerItem>();
 
-	/**
-	 * Load items.
-	 *
-	 * @return the default list model
-	 */
-	public DefaultListModel<DrawerItem> loadItems() {
+    /**
+     * Load items.
+     *
+     * @return the default list model
+     */
+    public DefaultListModel<DrawerItem> loadItems() {
 
-		FileReader file=null;
-		try {
-			file = new FileReader(new File(GuideList.class.getResource("/listdata.txt").getFile()));
-		} catch (FileNotFoundException e) {
-			System.out.println("could not find the"+Data.left_menu_item_information);
-		}
+        FileReader file = null;
+        try {
+            file = new FileReader(new File(GuideList.class.getResource("/listdata.txt").getFile()));
+        } catch (FileNotFoundException e) {
+            System.out.println("could not find the" + Data.left_menu_item_information);
+        }
 
-		BufferedReader br = new BufferedReader(file);
-		try {
-			String line=br.readLine();
+        BufferedReader br = new BufferedReader(file);
+        try {
+            String line = br.readLine();
 
-			while(line!=null){
-				DrawerItem item = new DrawerItem();
-				String temp[] = line.split("\\*");
-				item.name=temp[0];
-				item.description=temp[1].replace('?','\n');
-				model.addElement(item);
-				line=br.readLine();
-			}//while
+            while (line != null) {
+                DrawerItem item = new DrawerItem();
+                String temp[] = line.split("\\*");
+                item.name = temp[0];
+                item.description = temp[1].replace('?', '\n');
+                model.addElement(item);
+                line = br.readLine();
+            }//while
 
-		} catch (IOException e) {
-			System.out.println("could not read "+Data.left_menu_item_information);
-		}
-		try {
-			br.close();
-		} catch (IOException e) {
-			System.out.println("problem with closing file");
-		}
-		return model;
-	}// end of method
+        } catch (IOException e) {
+            System.out.println("could not read " + Data.left_menu_item_information);
+        }
+        try {
+            br.close();
+        } catch (IOException e) {
+            System.out.println("problem with closing file");
+        }
+        return model;
+    }// end of method
 }//end of class 

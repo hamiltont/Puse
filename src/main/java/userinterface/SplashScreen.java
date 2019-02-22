@@ -12,48 +12,52 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SplashScreen extends JWindow {
-  private int duration;
-  public SplashScreen(int d) {
-    duration = d;
-  }
+    private int duration;
 
-  // A simple little method to show a title screen in the center
-  // of the screen for the amount of time given in the constructor
-  public void showSplash() {
-    JPanel content = (JPanel)getContentPane();
-    content.setBackground(Color.white);
+    public SplashScreen(int d) {
+        duration = d;
+    }
 
-    // Set the window's bounds, centering the window
-    ImageIcon ico = new ImageIcon("./logo.jpg");
-    int width = ico.getIconHeight()+20;
-    int height =ico.getIconHeight()+20;
-    Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-    int x = (screen.width-width)/2;
-    int y = (screen.height-height)/2;
-    setBounds(x,y,width,height);
+    // A simple little method to show a title screen in the center
+    // of the screen for the amount of time given in the constructor
+    public void showSplash() {
+        JPanel content = (JPanel) getContentPane();
+        content.setBackground(Color.white);
 
-    // Build the splash screen
-    JLabel label = new JLabel(ico);
-   
-  
-    JLabel copyrt = new JLabel("", JLabel.CENTER);
-    copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
-    content.add(label, BorderLayout.CENTER);
-    content.add(copyrt, BorderLayout.SOUTH);
-    
+        // Set the window's bounds, centering the window
+        ImageIcon ico = new ImageIcon("./logo.jpg");
+        int width = ico.getIconHeight() + 20;
+        int height = ico.getIconHeight() + 20;
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (screen.width - width) / 2;
+        int y = (screen.height - height) / 2;
+        setBounds(x, y, width, height);
 
-    // Display it
-    setVisible(true);
+        // Build the splash screen
+        JLabel label = new JLabel(ico);
 
-    // Wait a little while, maybe while loading resources
-    try { Thread.sleep(duration); } catch (Exception e) {}
 
-    setVisible(false);
-  }
+        JLabel copyrt = new JLabel("", JLabel.CENTER);
+        copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
+        content.add(label, BorderLayout.CENTER);
+        content.add(copyrt, BorderLayout.SOUTH);
 
-  public void showSplashAndExit() {
-    showSplash();
-  }
+
+        // Display it
+        setVisible(true);
+
+        // Wait a little while, maybe while loading resources
+        try {
+            Thread.sleep(duration);
+        } catch (Exception e) {
+        }
+
+        setVisible(false);
+    }
+
+    public void showSplashAndExit() {
+        showSplash();
+    }
 
 //  public static void main(String[] args) {
 //    // Throw a nice little title page up on the screen first

@@ -10,110 +10,112 @@ import java.awt.event.ActionListener;
  */
 public class NoteGui extends JFrame {
 
-	public JPanel contentPane;
-	public ButtonGroup group; 
-	public JTextArea note_text;	
-	public JButton btn_add_note;
-	public JList list;
-	public JTextField text_field_actor_names;
+    public JPanel contentPane;
+    public ButtonGroup group;
+    public JTextArea note_text;
+    public JButton btn_add_note;
+    public JList list;
+    public JTextField text_field_actor_names;
 
-	/**
-	 * Instantiates a new note gui.
-	 */
-	public NoteGui() {
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(false);
-		setBounds(100, 100, 445, 351);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		note_text = new JTextArea();
-		JScrollPane note_scrool_pane= new JScrollPane(note_text);
-		note_scrool_pane.setBounds(10, 11, 409, 103);
-		contentPane.add(note_scrool_pane);
+    /**
+     * Instantiates a new note gui.
+     */
+    public NoteGui() {
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        setBounds(100, 100, 445, 351);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+        note_text = new JTextArea();
+        JScrollPane note_scrool_pane = new JScrollPane(note_text);
+        note_scrool_pane.setBounds(10, 11, 409, 103);
+        contentPane.add(note_scrool_pane);
 
-		JLabel lblNewLabel = new JLabel("Color");
-		lblNewLabel.setBounds(10, 125, 46, 14);
-		contentPane.add(lblNewLabel);
+        JLabel lblNewLabel = new JLabel("Color");
+        lblNewLabel.setBounds(10, 125, 46, 14);
+        contentPane.add(lblNewLabel);
 
-		list = new JList();
-		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGreen", "DarkGrey", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "Darkorange", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Green", "GreenYellow", "Grey", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGreen", "LightGrey", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
+        list = new JList();
+        list.setModel(new AbstractListModel() {
+            String[] values = new String[]{"AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGreen", "DarkGrey", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "Darkorange", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Green", "GreenYellow", "Grey", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGreen", "LightGrey", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"};
 
-		JScrollPane color_scrool_pane= new JScrollPane(list);
-		color_scrool_pane.setBounds(82, 125, 124, 124);
-		contentPane.add(color_scrool_pane);
+            public int getSize() {
+                return values.length;
+            }
 
-		JLabel lblNewLabel_1 = new JLabel("Select Alignment");
-		lblNewLabel_1.setBounds(216, 125, 176, 14);
-		contentPane.add(lblNewLabel_1);
+            public Object getElementAt(int index) {
+                return values[index];
+            }
+        });
 
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Left");
-		rdbtnNewRadioButton.setBounds(226, 146, 144, 23);
-		contentPane.add(rdbtnNewRadioButton);
+        JScrollPane color_scrool_pane = new JScrollPane(list);
+        color_scrool_pane.setBounds(82, 125, 124, 124);
+        contentPane.add(color_scrool_pane);
 
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Right");
-		rdbtnNewRadioButton_1.setBounds(226, 167, 144, 23);
-		contentPane.add(rdbtnNewRadioButton_1);
+        JLabel lblNewLabel_1 = new JLabel("Select Alignment");
+        lblNewLabel_1.setBounds(216, 125, 176, 14);
+        contentPane.add(lblNewLabel_1);
 
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Over");
-		rdbtnNewRadioButton_2.setBounds(226, 189, 132, 23);
-		contentPane.add(rdbtnNewRadioButton_2);
-		
-		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				text_field_actor_names.setEditable(true);
-			}
-		});
-		
-		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				text_field_actor_names.setEditable(false);
-				
-			}
-		});
+        JRadioButton rdbtnNewRadioButton = new JRadioButton("Left");
+        rdbtnNewRadioButton.setBounds(226, 146, 144, 23);
+        contentPane.add(rdbtnNewRadioButton);
 
-		rdbtnNewRadioButton.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				text_field_actor_names.setEditable(false);
-				
-			}
-		});
-		
-		btn_add_note = new JButton("Add Note");
-		btn_add_note.setBounds(161, 279, 89, 23);
-		contentPane.add(btn_add_note);
-		group = new ButtonGroup();
-		group.add(rdbtnNewRadioButton);
-		group.add(rdbtnNewRadioButton_1);
-		group.add(rdbtnNewRadioButton_2);
-		text_field_actor_names = new JTextField();
-		text_field_actor_names.setEditable(false);
-		text_field_actor_names.setBounds(226, 216, 203, 20);
-		contentPane.add(text_field_actor_names);
-		text_field_actor_names.setColumns(10);
-	}
-	
-	/**
-	 * Adds listener to button
-	 *
-	 * @param e the e
-	 */
-	public void addnoteListener2(ActionListener e){
-		btn_add_note.addActionListener(e);
-	}
+        JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Right");
+        rdbtnNewRadioButton_1.setBounds(226, 167, 144, 23);
+        contentPane.add(rdbtnNewRadioButton_1);
+
+        JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Over");
+        rdbtnNewRadioButton_2.setBounds(226, 189, 132, 23);
+        contentPane.add(rdbtnNewRadioButton_2);
+
+        rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                text_field_actor_names.setEditable(true);
+            }
+        });
+
+        rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                text_field_actor_names.setEditable(false);
+
+            }
+        });
+
+        rdbtnNewRadioButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                text_field_actor_names.setEditable(false);
+
+            }
+        });
+
+        btn_add_note = new JButton("Add Note");
+        btn_add_note.setBounds(161, 279, 89, 23);
+        contentPane.add(btn_add_note);
+        group = new ButtonGroup();
+        group.add(rdbtnNewRadioButton);
+        group.add(rdbtnNewRadioButton_1);
+        group.add(rdbtnNewRadioButton_2);
+        text_field_actor_names = new JTextField();
+        text_field_actor_names.setEditable(false);
+        text_field_actor_names.setBounds(226, 216, 203, 20);
+        contentPane.add(text_field_actor_names);
+        text_field_actor_names.setColumns(10);
+    }
+
+    /**
+     * Adds listener to button
+     *
+     * @param e the e
+     */
+    public void addnoteListener2(ActionListener e) {
+        btn_add_note.addActionListener(e);
+    }
 }
