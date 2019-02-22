@@ -1,18 +1,13 @@
 package userinterface;
 
-import java.awt.BorderLayout;
+import org.apache.batik.swing.JSVGCanvas;
+
+import javax.swing.*;
+import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.net.MalformedURLException;
-
-import javax.swing.BorderFactory;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import org.apache.batik.swing.JSVGCanvas;
 
 /**
  * This a custom file chooser which includes a preview panel for svg file format 

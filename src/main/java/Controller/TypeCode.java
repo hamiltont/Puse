@@ -1,10 +1,10 @@
 
 package Controller;
 
+import Svg.Data;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
-import Svg.Data;
 
 /*
  * This class handles user input from keyboard. When user enters input into code area it class realted functions and triggers svg creataion

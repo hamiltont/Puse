@@ -1,30 +1,13 @@
 
 package userinterface;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.event.ActionListener;
-import java.io.File;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.WindowConstants;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-
+import Svg.Svg;
 import org.apache.batik.swing.JSVGCanvas;
-import org.apache.batik.swing.svg.SVGDocumentLoaderEvent;
 import org.apache.batik.swing.svg.SVGDocumentLoaderListener;
 
-import Svg.Data;
-import Svg.Svg;
-
-import Controller.Control;
-
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 
 /*
  * Provides a separate screen for displaying sequence diagrams in case user changes Preferences

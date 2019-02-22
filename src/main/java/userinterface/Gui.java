@@ -2,98 +2,23 @@
 
 package userinterface;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.DefaultListModel;
-import javax.swing.DropMode;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JFileChooser;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.ListSelectionModel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
-import java.awt.ComponentOrientation;
-import java.awt.Desktop.Action;
-import java.awt.Dialog;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.Insets;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTextPane;
-import java.awt.Rectangle;
-import java.awt.FlowLayout;
-import java.awt.Label;
-import javax.swing.BoxLayout;
-import javax.xml.ws.handler.MessageContext.Scope;
-
-import java.awt.Button;
-import java.awt.List;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-
-import org.apache.batik.ext.awt.image.URLImageCache;
+import Controller.Control;
+import Svg.Data;
+import Svg.Svg;
 import org.apache.batik.swing.JSVGCanvas;
 import org.apache.batik.swing.svg.LinkActivationListener;
 import org.apache.batik.swing.svg.SVGDocumentLoaderEvent;
 import org.apache.batik.swing.svg.SVGDocumentLoaderListener;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
-import org.fife.ui.rsyntaxtextarea.Theme;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
-import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.factories.FormFactory;
-import com.jgoodies.forms.layout.RowSpec;
-
-
-import net.miginfocom.swing.MigLayout;
-import net.sourceforge.plantuml.Url;
-
-import java.awt.CardLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.awt.event.*;
 import java.io.File;
-import java.io.FileFilter;
 import java.net.MalformedURLException;
-import java.net.URL;
-
-import javax.swing.JRadioButtonMenuItem;
-import javax.swing.UIManager.*;
-import Controller.Control;
-import Svg.*;
-import Controller.*;
 
 
 public class Gui extends JFrame {

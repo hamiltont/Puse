@@ -1,18 +1,8 @@
 package Controller;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.net.MalformedURLException;
-
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
-import userinterface.RefGui;
-
-import Controller.Control.LoadItemToText;
-import Svg.Data;
 
 /**
  * The Class ReferenceAction.

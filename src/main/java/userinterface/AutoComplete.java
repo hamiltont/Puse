@@ -1,21 +1,13 @@
 
 package userinterface;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-import javax.swing.Icon;
-import javax.swing.text.JTextComponent;
-
 import org.fife.ui.autocomplete.AutoCompletion;
 import org.fife.ui.autocomplete.BasicCompletion;
-import org.fife.ui.autocomplete.Completion;
 import org.fife.ui.autocomplete.CompletionProvider;
 import org.fife.ui.autocomplete.DefaultCompletionProvider;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
+
+import java.io.*;
 
 /**
  * The Class AutoComplete. This class provides autocomplete functionality for writing  plantuml codes easily 

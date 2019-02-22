@@ -1,27 +1,15 @@
 package Svg;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-
-import net.sourceforge.plantuml.core.DiagramDescription;
-import org.apache.batik.swing.JSVGCanvas;
-
 import net.sourceforge.plantuml.FileFormat;
 import net.sourceforge.plantuml.FileFormatOption;
 import net.sourceforge.plantuml.SourceStringReader;
+import net.sourceforge.plantuml.core.DiagramDescription;
 import net.sourceforge.plantuml.syntax.SyntaxChecker;
 import net.sourceforge.plantuml.syntax.SyntaxResult;
+import org.apache.batik.swing.JSVGCanvas;
+
+import java.io.*;
+import java.util.Scanner;
 
 /**
  * The Class conducts operations for svg file 

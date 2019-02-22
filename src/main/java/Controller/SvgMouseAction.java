@@ -1,20 +1,13 @@
 package Controller;
 
-import java.awt.Component;
-import java.awt.MouseInfo;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-
-import javax.swing.SwingUtilities;
-
-import net.sourceforge.plantuml.code.ArobaseStringCompressor;
-import net.sourceforge.plantuml.cucadiagram.Code;
-
 import org.apache.batik.swing.JSVGCanvas;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 
-import Svg.Data;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 public class SvgMouseAction implements MouseListener, MouseMotionListener{
 

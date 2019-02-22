@@ -8,8 +8,8 @@ package userinterface;
 // with other applications.
 //
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 public class SplashScreen extends JWindow {
   private int duration;

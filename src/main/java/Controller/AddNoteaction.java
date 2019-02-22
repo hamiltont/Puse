@@ -1,13 +1,11 @@
 package Controller;
+
+import Svg.Data;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Enumeration;
-
-import javax.swing.AbstractButton;
-import javax.swing.ButtonGroup;
-import javax.swing.JRadioButton;
-
-import Svg.Data;
 
 /*
  * Action listener controller for adding note functionality
@@ -17,7 +15,7 @@ public class AddNoteaction implements ActionListener{
 	Control c;   /**< controller object */
   
 
-	public AddNoteaction(Control temp) {
+	public AddNoteaction(Control temp)  {
 		c=temp;
 
 	} //end of constroctor 

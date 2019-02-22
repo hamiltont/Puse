@@ -1,13 +1,9 @@
 package userinterface;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
-import javax.swing.DefaultListModel;
 
 import Svg.Data;
+
+import javax.swing.*;
+import java.io.*;
 
 /**
  * The Class GuideList. List on left side. Provides drag an drop feature for items

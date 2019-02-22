@@ -1,17 +1,9 @@
 package userinterface;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-
-import javax.swing.JList;
-import javax.swing.TransferHandler;
-
 
 import javax.swing.*;
-
-
-
-import java.awt.*;
-import java.awt.datatransfer.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 
 /**
  * The Class ListHandler. Handles drag and drop events

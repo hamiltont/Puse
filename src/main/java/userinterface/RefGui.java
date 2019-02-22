@@ -1,16 +1,7 @@
 package userinterface;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.ButtonGroup;
-import javax.swing.JRadioButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 
 /**
  * This class provides a view for reference interface.
