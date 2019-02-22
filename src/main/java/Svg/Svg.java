@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 
+import net.sourceforge.plantuml.core.DiagramDescription;
 import org.apache.batik.swing.JSVGCanvas;
 
 import net.sourceforge.plantuml.FileFormat;
@@ -87,12 +88,14 @@ public class Svg {
 		reader = new SourceStringReader(code);
 		System.out.println(code);
 		os = new ByteArrayOutputStream();
-		f_option = new FileFormatOption(FileFormat.SVG); 
+		f_option = new FileFormatOption(FileFormat.SVG);
 		String validationmessage="";
 		String svg="";
 
 		try {
-			validationmessage=reader.generateImage(os,f_option);
+			DiagramDescription desc = reader.outputImage(os, f_option);
+			if (desc == null)
+				throw new IOException("failure");
 			System.out.println("validation message is:"+validationmessage);
 			// The XML is stored into svg
 			svg = new String(os.toByteArray());
@@ -112,7 +115,7 @@ public class Svg {
 
 	 
 			if(result.getErrors().size()>0 && validationmessage.contains("Error")){
-				validationmessage=result.getErrors()+" Please look line:"+result.getErrorLinePosition();
+				validationmessage=result.getErrors()+" Please look line: " + result.getLineLocation().getPosition();
 			}
 			else{
 				try {
@@ -250,12 +253,9 @@ public class Svg {
 	public JSVGCanvas reload(JSVGCanvas svgCanvas,String name){
 
 		File f = new  File(name);
-		try {
-			svgCanvas.setURI(f.toURL().toString());
-			System.out.println("reload is complete");
-		} catch (MalformedURLException e) {
-			System.out.println("could not load the svg");
-		}
+		System.out.println("reload is starting");
+		svgCanvas.setURI(f.toURI().toString());
+		System.out.println("reload is complete");
 		return svgCanvas;
 	}//end of re-load
 
