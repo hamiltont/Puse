@@ -30,28 +30,28 @@ public class AddNoteaction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        String note = c.userinferface.note_screen.note_text.getText().trim();
-        String alignment = (getSelectedButtonText(c.userinferface.note_screen.group)).toLowerCase();
-        String list_name = " #" + c.userinferface.note_screen.list.getSelectedValue().toString().trim();
+        String note = c.gui.note_screen.note_text.getText().trim();
+        String alignment = (getSelectedButtonText(c.gui.note_screen.group)).toLowerCase();
+        String list_name = " #" + c.gui.note_screen.list.getSelectedValue().toString().trim();
         String code = "note " + alignment + " " + list_name + ": " + note + " end note";
 
         if (alignment.equalsIgnoreCase("over")) {
-            String actor_names_field = c.userinferface.note_screen.text_field_actor_names.getText().trim();
+            String actor_names_field = c.gui.note_screen.text_field_actor_names.getText().trim();
             System.out.println(actor_names_field);
             code = "note " + alignment + " of " + actor_names_field + list_name + ": " + note + " end note";
         }// over
 
-        if (c.userinferface.code_text_area.getCaretPosition() <= 0) {
-            c.userinferface.code_text_area.append(code);
+        if (c.gui.code_text_area.getCaretPosition() <= 0) {
+            c.gui.code_text_area.append(code);
         } else {
-            c.userinferface.code_text_area.insert(code, c.userinferface.code_text_area.getCaretPosition());
+            c.gui.code_text_area.insert(code, c.gui.code_text_area.getCaretPosition());
         }
 
-        c.userinferface.note_screen.note_text.setText("");
-        String temp = c.canvasjobs.installSvg(c.userinferface.code_text_area.getText());
-        c.userinferface.validation_label.setText(temp);
-        c.canvasjobs.reload(c.userinferface.svgcanvas, Data.temp_output_svgfile_name);
-        c.userinferface.note_screen.dispose();
+        c.gui.note_screen.note_text.setText("");
+        String temp = c.svgutils.writeSvgToDefaultFile(c.gui.code_text_area.getText());
+        c.gui.validation_label.setText(temp);
+        c.svgutils.reload(c.gui.svgcanvas, Data.temp_output_svgfile_name);
+        c.gui.note_screen.dispose();
 
     }// end of action
 

@@ -1,7 +1,7 @@
 
 package userinterface;
 
-import Svg.Svg;
+import Svg.SvgUtils;
 import org.apache.batik.swing.JSVGCanvas;
 import org.apache.batik.swing.svg.SVGDocumentLoaderListener;
 
@@ -23,13 +23,13 @@ public class SeperateDisplay extends JFrame {
      */
     public JScrollPane seperate_svg_display_scroll_pane;
     private JPanel menu_bar;
-    public Svg svg_operation;
+    public SvgUtils svg_operation;
     public JLabel filename_label;
 
     /**
      * Create the frame.
      */
-    public SeperateDisplay(Svg control, JSVGCanvas temp) {
+    public SeperateDisplay(SvgUtils control, JSVGCanvas temp) {
         svg_operation = control;
         main_display = temp;
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

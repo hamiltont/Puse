@@ -27,10 +27,10 @@ public class ReferenceAction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        int returnVal = c.userinferface.fc_reference.showOpenDialog(c.userinferface.code_text_area);
+        int returnVal = c.gui.fc_reference.showOpenDialog(c.gui.code_text_area);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            c.userinferface.ref_screen.setVisible(true);
-            c.userinferface.preview.svg_preview.setURI(null);
+            c.gui.ref_screen.setVisible(true);
+            c.gui.preview.svg_preview.setURI(null);
         }//approve
     }
 

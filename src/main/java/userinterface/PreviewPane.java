@@ -51,7 +51,7 @@ public class PreviewPane extends JPanel implements PropertyChangeListener {
             }// file control
 
             else if (newFile != null && !newFile.getName().endsWith(".svg")) {
-                label.setText("Please select Svg file");
+                label.setText("Please select SvgUtils file");
             }
         }
     }

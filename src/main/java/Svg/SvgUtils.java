@@ -14,26 +14,14 @@ import java.util.Scanner;
 /**
  * The Class conducts operations for svg file
  */
-public class Svg {
+public class SvgUtils {
 
-    SourceStringReader reader;
-    /**
-     * < for reading svg file
-     */
-    ByteArrayOutputStream os;
-    /**
-     * < for writing svg file
-     */
-    FileFormatOption f_option;
-    /**
-     * < file format
-     */
-    public Exporter exp = new Exporter();  /**< exporter object for export diagrams */
+    public Exporter exp = new Exporter();
 
     /**
      * Creates svg file from string, it validates code and creates svg
      *
-     * @param code the code
+     * @param main  the code
      * @return the string
      */
     public String CombineStrings(String main, String referenced_diagram) {
@@ -50,7 +38,7 @@ public class Svg {
 
                 String line = scanner.nextLine();
                 if (line.contains(search)) {
-                    String ref_code = installToString(f);
+                    String ref_code = loadSvg(f);
                     ref_code = ref_code.replaceFirst("@startuml", "");
                     ref_code = ref_code.replaceFirst("@enduml", "").trim();
                     line = line.trim(); //ref over Actor1 : init[[file:/C:/Users/can/Desktop/workspace/seconddiagram.svg seconddiagram.svg]]
@@ -71,7 +59,7 @@ public class Svg {
      * @param code the code
      * @return the string
      */
-    public String installSvg(String code) {
+    public String writeSvgToDefaultFile(String code) {
 
         code = code.replaceAll("^[ |\t]*\n$", "");
         code = code.trim();
@@ -81,10 +69,10 @@ public class Svg {
             System.out.println("footer deleted");
         }//preference
 
-        reader = new SourceStringReader(code);
+        SourceStringReader reader = new SourceStringReader(code);
         System.out.println(code);
-        os = new ByteArrayOutputStream();
-        f_option = new FileFormatOption(FileFormat.SVG);
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        FileFormatOption f_option = new FileFormatOption(FileFormat.SVG);
         String validationmessage = "";
         String svg = "";
 
@@ -137,16 +125,16 @@ public class Svg {
      * @param code the code
      * @param
      * @return the string
-     * @see #installSvg(String)
+     * @see #writeSvgToDefaultFile(String)
      */
-    public void installSvg(String code, String filename) {
+    public void writeSvgToFile(String code, String filename) {
 
         code = code.replaceAll("^[ |\t]*\n$", "");
         code = code.trim();
 
-        reader = new SourceStringReader(code);
-        os = new ByteArrayOutputStream();
-        f_option = new FileFormatOption(FileFormat.SVG);
+        SourceStringReader reader = new SourceStringReader(code);
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        FileFormatOption f_option = new FileFormatOption(FileFormat.SVG);
         String svg = "";
 
         try {
@@ -183,7 +171,10 @@ public class Svg {
      * @return The file contents as a <code>String</code>
      * @throws IOException IO Error
      */
-    public static String installToString(File file) {
+    public static String loadSvg(File file) {
+
+        // TODO check file is svg type
+        // TODO check file is valid svg
 
         FileReader fileReader = null;
         try {
@@ -216,10 +207,10 @@ public class Svg {
     /**
      * Replaces given line with another string in multi line strings
      *
-     * @param String main string
-     * @param String replacement
-     * @param int    line number
-     * @return String returns the new string
+     * @param main
+     * @param replacement
+     * @param line_number
+     * @return  returns the new string
      */
 
     public String ReplaceLine(String main, String replacement, int line_number) {
@@ -248,6 +239,6 @@ public class Svg {
         svgCanvas.setURI(f.toURI().toString());
         System.out.println("reload is complete");
         return svgCanvas;
-    }//end of re-load
+    }
 
 }//end of class

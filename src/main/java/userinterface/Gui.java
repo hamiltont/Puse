@@ -4,7 +4,7 @@ package userinterface;
 
 import Controller.Control;
 import Svg.Data;
-import Svg.Svg;
+import Svg.SvgUtils;
 import org.apache.batik.swing.JSVGCanvas;
 import org.apache.batik.swing.svg.LinkActivationListener;
 import org.apache.batik.swing.svg.SVGDocumentLoaderEvent;
@@ -14,9 +14,11 @@ import org.fife.ui.rtextarea.RTextScrollPane;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.net.MalformedURLException;
 
@@ -43,7 +45,7 @@ public class Gui extends JFrame {
     public JScrollPane listpane;
     public RSyntaxTextArea code_text_area;
     public RTextScrollPane code_text_pane;
-    public Svg svgjobs;
+    public SvgUtils svgutils;
     public DefaultListModel<DrawerItem> model = null;
     public JFileChooser fc_save;
     public JFileChooser fc_load;
@@ -64,37 +66,33 @@ public class Gui extends JFrame {
 
 
     public static void main(String[] args) {
-        SplashScreen splash = new SplashScreen(1000);
-        splash.showSplashAndExit();
+//        SplashScreen splash = new SplashScreen(1000);
+//        splash.showSplashAndExit();
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                    Svg svg_model = new Svg();
+                    SvgUtils svg_model = new SvgUtils();
                     Gui frame = new Gui(svg_model);
                     frame.setVisible(true);
-                    Control control = new Control(frame, svg_model);
+                    new Control(frame, svg_model);
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "could not load the user interface ");
-                    try {
-                        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                    } catch (Exception e1) {
-                        JOptionPane.showMessageDialog(null, "could not load system theme");
-                    }
+                    JOptionPane.showMessageDialog(null,
+                            "Unknown error starting program, exiting...",
+                            "Unknown Error",
+                            JOptionPane.ERROR_MESSAGE);
+                    System.exit(1);
                 }
             }
-
         });
-
     }
 
     /**
      * Create the frame.
      */
-    public Gui(Svg temp) {
+    public Gui(SvgUtils utils) {
 
-
-        svgjobs = temp;
+        svgutils = utils;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 611);
 
@@ -148,11 +146,14 @@ public class Gui extends JFrame {
         });
 
         svgcanvas = new JSVGCanvas();
-        linkwindow = new SeperateDisplay(svgjobs, svgcanvas);
+        // TODO should we just enable zoom action on SVG canvas?
         svgpane = new JScrollPane(svgcanvas);
+        svgcanvas.setComponentPopupMenu(Pmenu);
+
         menuBar = new JMenuBar();
         setJMenuBar(menuBar);
-        linkwindow = new SeperateDisplay(svgjobs, svgcanvas);
+
+        linkwindow = new SeperateDisplay(svgutils, svgcanvas);
         mnFile = new JMenu("File");
         menuBar.add(mnFile);
 
@@ -279,6 +280,10 @@ public class Gui extends JFrame {
         code_text_pane = new RTextScrollPane(code_text_area);
         code_text_area.setCodeFoldingEnabled(true);
         code_text_area.setAntiAliasingEnabled(true);
+
+        code_text_area.getPopupMenu().add(new JMenuItem("Ref This"));
+
+
         AutoComplete complete = new AutoComplete(code_text_area);
         complete.installGrammar("/autocompletewords.txt");
         contentPane.add(code_text_pane, BorderLayout.CENTER);
@@ -321,18 +326,12 @@ public class Gui extends JFrame {
 
     }//end of  constructor
 
-    public void addrightmenutocodeListener(MouseListener e) {
-        code_text_area.addMouseListener(e);
-
-    }// end of listener
-
     public void addClosingListener(WindowAdapter w) {
         addWindowListener(w);
     }
 
-
-    public void addcodetextListener(KeyListener type) {
-        code_text_area.addKeyListener(type);
+    public void addcodetextListener(DocumentListener dl) {
+        code_text_area.getDocument().addDocumentListener(dl);
     }
 
     public void addsaveListener(ActionListener e) {
@@ -344,9 +343,6 @@ public class Gui extends JFrame {
         menuitem_load.addActionListener(e);
     }
 
-    public void addsvgcanvasListener(MouseListener m) {
-        svgcanvas.addMouseListener(m);
-    }
 
     public void addpopupactionListener(ActionListener e) {
         popupmenu_item_export.addActionListener(e);

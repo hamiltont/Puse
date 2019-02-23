@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * The Class NoteGui
+ * Helper popup for assisting user in building plantUML "notes" - color, text alignment, content, etc
  */
 public class NoteGui extends JFrame {
 

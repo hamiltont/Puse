@@ -1,16 +1,15 @@
 
 package userinterface;
 
-// SplashScreen.java
-// A simple application to show a title screen in the center of the screen
-// for the amount of time given in the constructor.  This class includes
-// a sample main() method to test the splash screen, but it's meant for use
-// with other applications.
-//
+
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Show a title screen in the center of the screen
+ *
+ */
 public class SplashScreen extends JWindow {
     private int duration;
 
@@ -25,7 +24,7 @@ public class SplashScreen extends JWindow {
         content.setBackground(Color.white);
 
         // Set the window's bounds, centering the window
-        ImageIcon ico = new ImageIcon("./logo.jpg");
+        ImageIcon ico = new ImageIcon( SplashScreen.class.getResource("/logo.jpg"));
         int width = ico.getIconHeight() + 20;
         int height = ico.getIconHeight() + 20;
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
@@ -35,7 +34,6 @@ public class SplashScreen extends JWindow {
 
         // Build the splash screen
         JLabel label = new JLabel(ico);
-
 
         JLabel copyrt = new JLabel("", JLabel.CENTER);
         copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
@@ -50,6 +48,7 @@ public class SplashScreen extends JWindow {
         try {
             Thread.sleep(duration);
         } catch (Exception e) {
+            // ignored
         }
 
         setVisible(false);
